@@ -1,0 +1,45 @@
+﻿<div id="newsFeed">
+    <div header-menu-directive></div>
+
+    <header>
+        <h1>Wall</h1>
+    </header>
+
+    <main>
+        <div class="row">
+            <div class="col-sm-8 col-xs-12">
+                <div ng-repeat="item in latestFeed" class="feed-item">
+                    <div class="author-data">
+                        <img ng-src="{{item.author.profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg'}}" alt="IMAGE" />
+                        <a ng-click="showUserPreview(item.author.username)" popup-show="templates/user-preview.html">{{item.author.name}}</a>
+                        <span>{{item.date | date : "dd MMM yyyy HH:mm:ss"}}</span>
+                    </div>
+                    <p>{{item.postContent}}</p>
+                    <div id="{{item.id}}" class="likes-and-comments">
+                        <span>{{item.likesCount}}</span>
+                        <a ng-click="likePost(item)" ng-if="!item.liked">
+                            <img ng-src="http://s21.postimg.org/6e4q1vwlv/fb_like.png" alt="LIKE" />
+                            <span>Like</span>
+                        </a>
+                        <a ng-click="unlikePost(item)" ng-if="item.liked">
+                            <img ng-src="http://s21.postimg.org/6e4q1vwlv/fb_like.png" alt="UNLIKE" />
+                            <span>Unlike</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- <div user-preview-directive></div> -->
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div class="friends-table">
+                    <a ng-href="#/all-friends/">
+                        <h2>Friends - {{totalFriendsCount}} total</h2>
+                    </a>
+                    <div ng-repeat="friend in friends" class="friend-row">
+                        <img ng-src="{{friend.profileImageData || 'http://www.globalartmaterials.com/images/quattro/quattro-blank-paper.gif'}}" alt="IMAGE" />
+                        <a ng-href="#/user-wall/{{friend.username}}">{{friend.name}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,169 @@
+﻿@import 'https://fonts.googleapis.com/css?family=Aladin';
+
+body {
+    font-family: Tahoma, Verdana, sans-serif;
+    font-size: 14px;
+    background-color: #404040;
+    color: #FFF;
+
+    .container {
+        margin-bottom: 50px;
+
+        header {
+            nav {
+                background-color: #234465;
+
+                .nav {
+                    background-color: #234465;
+                    display: inline-block;
+
+                    h2 {
+                        font-family: 'Aladin', cursive;
+                        font-size: 32px;
+                        margin: 10px;
+                    }
+
+                    li {
+                        font-family: 'Sigmar One', cursive;
+                        display: inline-block;
+                        font-size: 1.6em;
+
+                        a {
+                            color: #FFF;
+                            text-align: center;
+                            padding: 9px 15px;
+
+                            &:hover {
+                                color: #234465;
+                                cursor: pointer;
+                            }
+                        }
+
+                        .friend-request-username {
+                            color: #000;
+                        }
+
+                        .bottom-line {
+                            border-bottom: 3px solid #FFA000;
+                        }
+
+                        img {
+                            width: 34px;  
+                        }
+
+                        .profile-picture {
+                            width: 40px;
+                            border-radius: 25px;
+                        }
+
+                        #friendRequestsResult {
+                            position: absolute;
+                            width: 200px;
+                            background-color: #FFF;
+                            color: #000;
+
+                            .friend-request {
+                                border: 2px outset #000;
+                                padding-bottom: 2px;
+                                
+                                margin-bottom: 5px;
+
+                                img {
+                                    width: 35px;
+                                }
+
+                                .buttons {
+                                    text-align: right;
+                                    margin-right: 5px;
+
+                                    button {
+                                        font-family: Tahoma, Verdana, sans-serif;
+                                        font-size: 16px;
+                                        font-weight: bold;
+                                        width: 70px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    p {
+                        position: absolute;
+                        font-size: 12px;
+                        width: 20px;
+                        background-color: red;
+                        border: 2px solid #FFF;
+                        border-radius: 100%;
+                        right: 0;
+                        bottom: -5px;
+                    }
+                }
+            }
+
+            #menuDiv {
+                background-color: #234465;
+            }
+
+            #searchDiv {
+                float: right;
+                clear: both;
+                background-color: #234465;
+                display: inline-block;
+                margin-top: 10px;
+                margin-right: 20px;
+
+                input {
+                    display: inline-block;
+                    color: #000;
+                    width: 200px;
+                    height: 34px;
+                    border-bottom-left-radius: 5px;
+                    border-top-left-radius: 5px;
+                    padding-left: 5px;
+                }
+
+                button {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
+                    height: 34px;
+                }
+
+                #searchResults {
+                    position: absolute;
+                    background-color: #FFF;
+
+                    img {
+                        width: 35px;
+                    }
+
+                    a {
+                        color: #000;
+                        text-decoration: none;
+                    }
+
+                    .search-user {
+                        border: 1px solid #000;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+
+        footer {
+            p {
+                font-family: "Times New Roman", Times, serif;
+                background-color: #234465;
+                font-size: 1.25em;
+                text-align: center;
+                position: fixed;
+                bottom: -10px;
+                left: 0;
+                width: 100%;
+            }
+        }
+    }
+
+    main {
+        margin-top: 60px;
+    }
+}

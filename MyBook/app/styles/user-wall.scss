@@ -1,0 +1,181 @@
+﻿#newsFeed {
+    header {
+        h1 {
+            font-family: 'Aladin', cursive;
+            font-size: 80px;
+            text-align: center;
+            margin-top: 80px;
+        }
+    }
+
+    main {
+        .feed-item {
+            width: 500px;
+            height: 120px;
+            margin: 0 auto;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 2px solid #000;
+            border-radius: 20px;
+            background-color: #FFF;
+            color: #000;
+
+            .author-data {
+                img {
+                    width: 50px;
+                }
+
+                a {
+                    font-size: 1.1em;
+                    font-weight: bold;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                span {
+                    float: right;
+                    clear: both;
+                }
+            }
+
+            p {
+                margin-top: 10px;
+                margin-left: 10px;
+                margin-bottom: 0;
+            }
+
+            .likes-and-comments {
+                float: right;
+                clear: both;
+                margin-right: 10px;
+
+                img {
+                    width: 20px;
+                    padding-bottom: 5px;
+                }
+
+                a {
+                    text-decoration: none;
+
+                    &:hover {
+                        cursor: pointer;
+
+                        span {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
+        .friends-table {
+            float: right;
+            clear: both;
+
+            h2 {
+                text-align: center;
+                color: #FFF;
+                background-color: #000;
+                margin-bottom: 0;
+                padding-bottom: 10px;
+                border: 3px outset #FFF;
+            }
+
+            .friend-row {
+                background-color: #FFF;
+                width: 300px;
+                height: 57px;
+                color: #000;
+                font-size: 1.2em;
+                border: 3px outset #000;
+
+                img {
+                    width: 50px;
+                }
+            }
+
+            a {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+
+/*** USER Preview Styles ***/
+
+.user-preview {
+    position: fixed;
+    background-color: #FFF;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 10px;
+
+    a {
+        color: #000;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    img {
+        float: left;
+        clear: left;
+        width: 75px;
+        margin-top: 5px;
+    }
+
+    div {
+        display: inline-block;
+        margin-left: 20px;
+
+        img {
+            float: right;
+            clear: right;
+        }
+
+        .gender-img {
+            width: 15px;
+            margin-left: 10px;
+        }
+
+        .close-btn {
+            display: inline-block;
+            float: right;
+            clear: both;
+            color: #000;
+            font-size: 0.75em;
+            margin-top: 40px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        button {
+            display: block;
+            margin-top: 15px;
+            font-size: 1.25em;
+            width: 95px;
+            border-radius: 5px;
+            text-transform: capitalize;
+        }
+
+        .friend-btn {
+            background-color: rgba(0, 255, 0, 0.4);
+        }
+
+        .pending-btn {
+            background-color: rgba(255, 255, 0, 0.4);
+        }
+
+        .invite-btn {
+            background-color: rgba(50, 100, 255, 1);
+            border: 2px outset #000;
+            box-shadow: #000 2px 0 1px 2px;
+        }
+    }
+}

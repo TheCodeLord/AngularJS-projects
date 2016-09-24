@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="myBook" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>My BooK</title>
+    <meta name="author" content="TheCodeLord" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="bower_components/toastr/toastr.css" rel="stylesheet" />
+
+    <link href="styles/main-style.css" rel="stylesheet" />
+    <link href="styles/home-page.css" rel="stylesheet" />
+    <link href="styles/user-wall.css" rel="stylesheet" />
+    <link href="styles/all-friends-style.css" rel="stylesheet" />
+
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body ng-controller="MainController" ng-click="hideRequests(); hidePopover();">
+    <div class="container">
+        <main ng-click="hideResults()">
+            <div ng-view></div>
+        </main>
+
+        <footer footer-directive></footer>
+    </div>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+    <script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/angular-spinner/angular-spinner.js"></script>
+    <script src="bower_components/angular-rt-popup/dist/angular-rt-popup.js"></script>
+
+    <script src="js/main-menu.js"></script>
+    <script src="js/app.js"></script>
+
+    <script src="js/controllers/home-controller.js"></script>
+    <script src="js/controllers/all-friends-controller.js"></script>
+    <script src="js/controllers/main-controller.js"></script>
+    <script src="js/controllers/user-wall-controller.js"></script>
+
+    <script src="js/services/search.js"></script>
+    <script src="js/services/user-wall.js"></script>
+    <script src="js/services/authentication.js"></script>
+    <script src="js/services/identity.js"></script>
+    <script src="js/services/get-friends.js"></script>
+    <script src="js/services/likes.js"></script>
+
+    <script src="js/directives/header-menu-directive.js"></script>
+    <script src="js/directives/footer-directive.js"></script>
+    <script src="js/directives/user-preview-directive.js"></script>
+</body>
+</html>

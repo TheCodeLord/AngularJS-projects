@@ -1,0 +1,21 @@
+﻿#homePage h1 {
+  font-family: 'Aladin', cursive;
+  font-size: 80px; }
+
+#homePage form {
+  border: 2px solid #FFA000;
+  padding: 20px; }
+  #homePage form input {
+    color: #000; }
+  #homePage form button {
+    width: 160px;
+    font-size: 1.5em;
+    font-weight: bold; }
+  #homePage form .gender-text {
+    font-weight: 600; }
+  #homePage form .gender-margin {
+    margin-right: 10px; }
+
+#homePage #loginForm {
+  margin-bottom: 25px; }
+

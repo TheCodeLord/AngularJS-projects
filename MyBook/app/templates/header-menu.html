@@ -1,0 +1,72 @@
+﻿<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div id="menuDiv">
+            <button id="menuBtn" class="navbar-toggle collapsed">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+        </div>
+
+        <ul ng-click="hideResults()" id="navigation" class="nav">
+            <li>
+                <h2 id="menuHeader" class="text-center">My BooK</h2>
+            </li>
+            <li>
+                <img data-ng-src="{{currentUser.profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg'}}" data-err-src="http://www.muet.edu.pk/sites/default/files/images/users/42/no-profile.gif" class="profile-picture" />
+            </li>
+            <li>
+                <a ng-href="#/user-wall/{{currentUser.username}}">{{currentUser.name}}</a>
+            </li>
+            <li>
+                <a class="menu-link" ng-href="#/user-wall/{{currentUser.username}}">
+                    <img ng-src="https://cdn3.iconfinder.com/data/icons/business-bundle/512/news-256.png" alt="Feed" />
+                </a>
+            </li>
+            <li>
+                <a ng-click="getFriendRequests()" class="menu-link">
+                    <img ng-src="http://www.vaynak.com/img/kullanici-yorumlari.png" alt="Friend Requests" />
+                    <p ng-if="getFriendRequestsCount">{{getFriendRequestsCount}}</p>
+                </a>
+                <div ng-if="friendRequests" id="friendRequestsResult">
+                    <div class="friend-request" ng-repeat="friendRequest in friendRequests">
+                        <img ng-src="{{friendRequest.user.profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg'}}" alt="IMAGE" />
+                        <a ng-href="#/user-wall/{{friendRequest.user.username}}" class="friend-request-username">{{friendRequest.user.name}}</a>
+                        <div class="buttons">
+                            <button ng-model="friendRequest.id" ng-click="acceptRequest(friendRequest.id)" class="btn btn-success">Accept</button>
+                            <button ng-model="friendRequest.id" ng-click="rejectRequest(friendRequest.id)" class="btn btn-danger">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a class="menu-link" href="#/editProfile">
+                    <img ng-src="http://findicons.com/files/icons/88/mac/128/setting.png" alt="Edit Profile" />
+                </a>
+            </li>
+            <li>
+                <a class="menu-link" href="#/changePassword">
+                    <img ng-src="https://freeiconshop.com/files/edd/key-flat.png" alt="Change Password" />
+                </a>
+            </li>
+            <li>
+                <a class="menu-link" href="" ng-click="logout()">
+                    <img ng-src="https://cdn2.iconfinder.com/data/icons/large-home-icons/256/Exit_delete_close_remove_door_logout_out.png" alt="Logout" />
+                </a>
+            </li>
+        </ul>
+
+        <div id="searchDiv" class="input-group">
+            <input ng-model="data" ng-keyup="search(data)" ng-focus="search(data)" class="form-control" type="search" placeholder="Search..." />
+            <button ng-click="search(data)" id="searchBtn" class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+            </button>
+            <div id="searchResults" ng-if="searchResults">
+                <div ng-repeat="user in searchResults" class="search-user">
+                    <a ng-href="#/user-wall/{{user.username}}">
+                        <img ng-src="{{user.profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg'}}" alt="IMAGE" />
+                        <span>{{user.name}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

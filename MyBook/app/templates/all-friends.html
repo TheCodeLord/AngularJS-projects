@@ -1,0 +1,18 @@
+﻿<div id="allFriends">
+    <div header-menu-directive></div>
+
+    <header>
+        <h1>All Friends</h1>
+    </header>
+
+    <main>
+        <div id="userFriends">
+            <div class="friend" ng-repeat="friend in allFriends">
+                <a href="">
+                    <img ng-src="{{friend.profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg'}}" alt="IMAGE" />
+                    <span>{{friend.name}}</span>
+                </a>
+            </div>
+        </div>
+    </main>
+</div>

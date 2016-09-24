@@ -1,0 +1,26 @@
+﻿#allFriends header h1 {
+  font-family: 'Aladin', cursive;
+  font-size: 80px;
+  text-align: center;
+  margin-top: 80px; }
+
+#allFriends main #userFriends {
+  max-width: 620px;
+  margin: 0 auto; }
+  #allFriends main #userFriends .friend {
+    display: inline-block;
+    background-color: #FFF;
+    width: 300px;
+    margin: 5px;
+    border: 2px solid #000; }
+    #allFriends main #userFriends .friend a {
+      text-decoration: none; }
+    #allFriends main #userFriends .friend img {
+      width: 80px;
+      border-right: 2px solid #000; }
+    #allFriends main #userFriends .friend span {
+      color: #0000cc;
+      font-size: 1.25em; }
+      #allFriends main #userFriends .friend span:hover {
+        text-decoration: underline; }
+

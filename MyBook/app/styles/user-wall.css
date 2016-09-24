@@ -1,0 +1,116 @@
+﻿#newsFeed header h1 {
+  font-family: 'Aladin', cursive;
+  font-size: 80px;
+  text-align: center;
+  margin-top: 80px; }
+
+#newsFeed main .feed-item {
+  width: 500px;
+  height: 120px;
+  margin: 0 auto;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  background-color: #FFF;
+  color: #000; }
+  #newsFeed main .feed-item .author-data img {
+    width: 50px; }
+  #newsFeed main .feed-item .author-data a {
+    font-size: 1.1em;
+    font-weight: bold; }
+    #newsFeed main .feed-item .author-data a:hover {
+      cursor: pointer; }
+  #newsFeed main .feed-item .author-data span {
+    float: right;
+    clear: both; }
+  #newsFeed main .feed-item p {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 0; }
+  #newsFeed main .feed-item .likes-and-comments {
+    float: right;
+    clear: both;
+    margin-right: 10px; }
+    #newsFeed main .feed-item .likes-and-comments img {
+      width: 20px;
+      padding-bottom: 5px; }
+    #newsFeed main .feed-item .likes-and-comments a {
+      text-decoration: none; }
+      #newsFeed main .feed-item .likes-and-comments a:hover {
+        cursor: pointer; }
+        #newsFeed main .feed-item .likes-and-comments a:hover span {
+          text-decoration: underline; }
+
+#newsFeed main .friends-table {
+  float: right;
+  clear: both; }
+  #newsFeed main .friends-table h2 {
+    text-align: center;
+    color: #FFF;
+    background-color: #000;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+    border: 3px outset #FFF; }
+  #newsFeed main .friends-table .friend-row {
+    background-color: #FFF;
+    width: 300px;
+    height: 57px;
+    color: #000;
+    font-size: 1.2em;
+    border: 3px outset #000; }
+    #newsFeed main .friends-table .friend-row img {
+      width: 50px; }
+  #newsFeed main .friends-table a:hover {
+    cursor: pointer; }
+
+/*** USER Preview Styles ***/
+.user-preview {
+  position: fixed;
+  background-color: #FFF;
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 10px; }
+  .user-preview a {
+    color: #000;
+    font-size: 1.2em;
+    font-weight: bold; }
+  .user-preview img {
+    float: left;
+    clear: left;
+    width: 75px;
+    margin-top: 5px; }
+  .user-preview div {
+    display: inline-block;
+    margin-left: 20px; }
+    .user-preview div img {
+      float: right;
+      clear: right; }
+    .user-preview div .gender-img {
+      width: 15px;
+      margin-left: 10px; }
+    .user-preview div .close-btn {
+      display: inline-block;
+      float: right;
+      clear: both;
+      color: #000;
+      font-size: 0.75em;
+      margin-top: 40px; }
+      .user-preview div .close-btn:hover {
+        cursor: pointer; }
+    .user-preview div button {
+      display: block;
+      margin-top: 15px;
+      font-size: 1.25em;
+      width: 95px;
+      border-radius: 5px;
+      text-transform: capitalize; }
+    .user-preview div .friend-btn {
+      background-color: rgba(0, 255, 0, 0.4); }
+    .user-preview div .pending-btn {
+      background-color: rgba(255, 255, 0, 0.4); }
+    .user-preview div .invite-btn {
+      background-color: #3264ff;
+      border: 2px outset #000;
+      box-shadow: #000 2px 0 1px 2px; }
+

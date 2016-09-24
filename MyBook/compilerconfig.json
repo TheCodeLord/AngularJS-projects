@@ -1,0 +1,38 @@
+﻿[
+  {
+    "outputFile": "app/style/style.css",
+    "inputFile": "app/style/style.scss"
+  },
+  {
+    "outputFile": "app/home/home-page.css",
+    "inputFile": "app/home/home-page.scss"
+  },
+  {
+    "outputFile": "app/news-feed/news-feed.css",
+    "inputFile": "app/news-feed/news-feed.scss"
+  },
+  {
+    "outputFile": "app/common/main-style.css",
+    "inputFile": "app/common/main-style.scss"
+  },
+  {
+    "outputFile": "app/friends/all-friends-style.css",
+    "inputFile": "app/friends/all-friends-style.scss"
+  },
+  {
+    "outputFile": "app/styles/user.css",
+    "inputFile": "app/styles/user.scss"
+  },
+  {
+    "outputFile": "app/styles/user-wall.css",
+    "inputFile": "app/styles/user-wall.scss"
+  },
+  {
+    "outputFile": "app/styles/all-friends-style.css",
+    "inputFile": "app/styles/all-friends-style.scss"
+  },
+  {
+    "outputFile": "app/styles/main-style.css",
+    "inputFile": "app/styles/main-style.scss"
+  }
+]
