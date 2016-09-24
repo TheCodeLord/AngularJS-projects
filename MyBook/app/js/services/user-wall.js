@@ -12,7 +12,7 @@
 
                 //Query options StartPostId=[X] & PageSize=[X] 
                 //PageSize is REQUIRED (range 0 to 10 incusive)
-                $http.get(BASE_URL + 'users/' + username + '/wall' + '?StartPostId=' + startPage + '&PageSize=' + pageSize)
+                $http.get(BASE_URL + 'users/' + username + '/wall' + '?StartPostId=11' + startPage + '&PageSize=' + pageSize)
                     .then(function (response) {
                         defer.resolve(response.data);
                     }, function (err) {

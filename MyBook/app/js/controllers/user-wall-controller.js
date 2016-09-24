@@ -33,10 +33,11 @@
 
                     if (response.length === 0) {
                         $scope.latestFeed = [{
-                            postContent: 'You do not have any feed yet...'
+                            postContent: 'You do not have any posts on your wall yet...',
                         }];
                     } else {
                         $scope.latestFeed = response;
+                        $scope.hasPosts = true;
                     }
                 });
 

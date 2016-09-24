@@ -8,23 +8,43 @@
     <main>
         <div class="row">
             <div class="col-sm-8 col-xs-12">
-                <div ng-repeat="item in latestFeed" class="feed-item">
-                    <div class="author-data">
-                        <img ng-src="{{item.author.profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg'}}" alt="IMAGE" />
-                        <a ng-click="showUserPreview(item.author.username)" popup-show="templates/user-preview.html">{{item.author.name}}</a>
-                        <span>{{item.date | date : "dd MMM yyyy HH:mm:ss"}}</span>
+                <div ng-repeat="post in latestFeed" class="feed-items">
+                    <div class="post">
+                        <div class="author-data">
+                            <img ng-src="{{post.author.profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg'}}" alt="IMAGE" />
+                            <a ng-click="showUserPreview(post.author.username)" popup-show="templates/user-preview.html">{{post.author.name}}</a>
+                            <span>{{post.date | date : "dd MMM yyyy HH:mm:ss"}}</span>
+                        </div>
+                        <p>{{post.postContent}}</p>
+                        <div ng-if="hasPosts" id="{{post.id}}" class="likes-and-comments">
+                            <span>{{post.likesCount}}</span>
+                            <a ng-click="likePost(post)" ng-if="!post.liked">
+                                <img ng-src="http://s21.postimg.org/6e4q1vwlv/fb_like.png" alt="LIKE" />
+                                <span>Like</span>
+                            </a>
+                            <a ng-click="unlikePost(post)" ng-if="post.liked">
+                                <img ng-src="http://s21.postimg.org/6e4q1vwlv/fb_like.png" alt="UNLIKE" />
+                                <span>Unlike</span>
+                            </a>
+                        </div>
                     </div>
-                    <p>{{item.postContent}}</p>
-                    <div id="{{item.id}}" class="likes-and-comments">
-                        <span>{{item.likesCount}}</span>
-                        <a ng-click="likePost(item)" ng-if="!item.liked">
-                            <img ng-src="http://s21.postimg.org/6e4q1vwlv/fb_like.png" alt="LIKE" />
-                            <span>Like</span>
-                        </a>
-                        <a ng-click="unlikePost(item)" ng-if="item.liked">
-                            <img ng-src="http://s21.postimg.org/6e4q1vwlv/fb_like.png" alt="UNLIKE" />
-                            <span>Unlike</span>
-                        </a>
+                    <div ng-repeat="comment in post.comments" class="post-comment">
+                        <div>
+                            <img ng-src="{{comment.author.profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg'}}" alt="IMAGE" />
+                            <span>{{comment.date | date : "dd MMM yyyy HH:mm:ss"}}</span>
+                        </div>
+                        <p>{{comment.commentContent}}</p>
+                        <div id="{{comment.id}}" class="likes-and-comments">
+                            <span>{{comment.likesCount}}</span>
+                            <a ng-click="likePost(post)" ng-if="!comment.liked">
+                                <img ng-src="http://s21.postimg.org/6e4q1vwlv/fb_like.png" alt="LIKE" />
+                                <span>Like</span>
+                            </a>
+                            <a ng-click="unlikePost(post)" ng-if="comment.liked">
+                                <img ng-src="http://s21.postimg.org/6e4q1vwlv/fb_like.png" alt="UNLIKE" />
+                                <span>Unlike</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <!-- <div user-preview-directive></div> -->

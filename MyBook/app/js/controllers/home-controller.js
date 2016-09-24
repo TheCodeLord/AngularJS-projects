@@ -23,7 +23,8 @@
                 authentication.loginUser(user)
                     .then(function (response) {
                         usSpinnerService.stop('loading-spinner');
-                        $window.location = '#/user-wall/' + $cookies.get(USERNAME_COOKIE_KEY);
+                        //Reloading the page to prevent bugs occurring from late data
+                        $window.location.reload();
                     });
             };
 
@@ -32,6 +33,7 @@
                 authentication.registerUser(user)
                     .then(function (response) {
                         usSpinnerService.stop('loading-spinner');
+                        //Reloading the page to prevent bugs occurring from late data
                         $window.location.reload();
                     });
             };
