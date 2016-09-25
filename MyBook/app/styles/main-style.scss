@@ -167,3 +167,10 @@ body {
         margin-top: 60px;
     }
 }
+
+//Hiding the arrow in the popup 
+.popover {
+    .arrow {
+        display: none;
+    }
+}

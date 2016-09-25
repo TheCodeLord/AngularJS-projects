@@ -26,7 +26,8 @@
             //Start loading spinner
             usSpinnerService.spin('loading-spinner');
 
-            userWall.getPosts($routeParams.username, 10)
+            var getWallPosts = function () {
+                userWall.getPosts($routeParams.username, 10)
                 .then(function (response) {
                     //Stop loading spinner
                     usSpinnerService.stop('loading-spinner');
@@ -40,9 +41,13 @@
                         $scope.hasPosts = true;
                     }
                 });
+            }
 
-            // Returns an Array with all friends that the current user has
-            getFriends.getUserFriends()
+            //Geting latest posts by username taken from the URL($routeParams.username)
+            getWallPosts();
+
+            // Returns an Array with all friends that the wall owner has
+            getFriends.getUserFriends($routeParams.username)
                 .then(function (response) {
                     var friendsArr = response;
                     $scope.totalFriendsCount = response.length;
@@ -59,6 +64,11 @@
                     }
 
                     $scope.friends = friendsArr;
+                });
+
+            getFriends.getUserFullData($routeParams.username)
+                .then(function (response) {
+                    $scope.wallOwner = response.data;
                 });
 
             $scope.likePost = function (item) {
@@ -84,7 +94,7 @@
                         var status = null;
 
                         $scope.userPreviewData = data;
-                        
+
                         if (data.username !== $cookies.get(USERNAME_COOKIE_KEY)) {
                             if (data.isFriend) {
                                 status = 'friend';
@@ -98,10 +108,28 @@
                         //Depending on the status the button is disabled or enabled and has different styles
                         $scope.userPreviewData.status = status;
                     });
-            }
+            };
 
             $scope.hideUserPreview = function () {
                 $scope.userPreviewData = null;
-            }
+            };
+
+            $scope.addPost = function (commentContent) {
+                var wallOwnerUsername = $routeParams.username;
+                
+                //Add new post and refresh the posts after the post is added to display the new post
+                userWall.addPost(wallOwnerUsername, commentContent)
+                    .then(function () {
+                        getWallPosts();
+                    });
+            };
+
+            $scope.addComment = function (id, commentContent) {
+                //Add new comment and refresh the posts after the comment is added to display the new comment
+                userWall.addComment(id, commentContent)
+                    .then(function () {
+                        getWallPosts();
+                    });
+            };
         }
     ]);

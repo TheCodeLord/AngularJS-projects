@@ -15,10 +15,10 @@
                 $scope.isAuthenticated = true;
             }
 
-            $scope.logout = function() {
+            $scope.logout = function () {
                 authentication.logoutUser();
                 $scope.isAuthenticated = false;
-            }
+            };
 
             $scope.search = function (data) {
                 if (data === '') {
@@ -33,7 +33,7 @@
                             $scope.searchResults = undefined;
                         }
                     });
-            }
+            };
 
             $scope.getFriendRequests = function () {
                 getFriends.getFriendRequests()
@@ -44,7 +44,7 @@
                         $scope.friendRequests = undefined;
                     }
                 });
-            }
+            };
 
             //Displaying the count of pending requests if user is authenticated
             if (authentication.isAuthenticated()) {
@@ -69,7 +69,7 @@
                                 $scope.getFriendRequestsCount = data;
                             });
                     });
-            }
+            };
 
             $scope.rejectRequest = function (id) {
                 var status = 'rejected';
@@ -82,6 +82,6 @@
                                 $scope.getFriendRequestsCount = data;
                             });
                     });
-            }
+            };
         }
     ]);

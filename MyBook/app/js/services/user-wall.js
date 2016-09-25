@@ -12,7 +12,7 @@
 
                 //Query options StartPostId=[X] & PageSize=[X] 
                 //PageSize is REQUIRED (range 0 to 10 incusive)
-                $http.get(BASE_URL + 'users/' + username + '/wall' + '?StartPostId=11' + startPage + '&PageSize=' + pageSize)
+                $http.get(BASE_URL + 'users/' + username + '/wall' + '?StartPostId=' + startPage + '&PageSize=' + pageSize)
                     .then(function (response) {
                         defer.resolve(response.data);
                     }, function (err) {
@@ -23,8 +23,41 @@
                 return defer.promise;
             }
 
+            function addPost(wallOwnerUsername, postContent) {
+                var defer = $q.defer();
+
+                var dataObj = {
+                    postContent: postContent,
+                    username: wallOwnerUsername
+                }
+
+                $http.post(BASE_URL + 'posts', dataObj)
+                    .then(function (response) {
+                        defer.resolve(response);
+                    });
+
+                return defer.promise;
+            }
+
+            function addComment(id, commentContent) {
+                var defer = $q.defer();
+
+                var dataObj = {
+                    commentContent: commentContent
+                }
+
+                $http.post(BASE_URL + 'posts/' + id + '/comments', dataObj)
+                    .then(function (response) {
+                        defer.resolve(response);
+                    });
+
+                return defer.promise;
+            }
+
             return {
-                getPosts: getPosts
+                getPosts: getPosts,
+                addPost: addPost,
+                addComment: addComment
             }
         }
     ]);

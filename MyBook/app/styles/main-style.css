@@ -107,3 +107,6 @@ body {
   body main {
     margin-top: 60px; }
 
+.popover .arrow {
+  display: none; }
+
