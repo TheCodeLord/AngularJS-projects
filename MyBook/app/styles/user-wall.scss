@@ -9,10 +9,36 @@
     }
 
     main {
-        .cover-image {
-            width: 100%;
-            max-height: 200px;
+        .wall-cover {
             margin-bottom: 20px;
+            height: 200px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+
+            img {
+                float: left;
+                clear: left;
+                width: 100px;
+                margin-right: 20px;
+            }
+
+            div {
+                display: inline-block;
+
+                h3 {
+                    background-color: rgba(100, 100, 100, 0.7);
+                    padding: 5px;
+                    font-size: 28px;
+                }
+
+                button {
+                    color: #000;
+                    font-size: 1.5em;
+                    text-transform: capitalize;
+                    width: 120px;
+                    text-align: center;
+                }   
+            }
         }
 
         .add-post {
@@ -186,8 +212,6 @@
 /*** USER PREVIEW Styles ***/
 
 .user-preview {
-    position: fixed;
-    background-color: #FFF;
     padding: 10px;
     border: 2px solid #000;
     border-radius: 10px;
@@ -240,20 +264,6 @@
             border-radius: 5px;
             text-transform: capitalize;
         }
-
-        .friend-btn {
-            background-color: rgba(0, 255, 0, 0.4);
-        }
-
-        .pending-btn {
-            background-color: rgba(255, 255, 0, 0.4);
-        }
-
-        .invite-btn {
-            background-color: rgba(50, 100, 255, 1);
-            border: 2px outset #000;
-            box-shadow: #000 2px 0 1px 2px;
-        }
     }
 }
 
@@ -278,4 +288,21 @@
             clear: right;
         }
     }
+}
+
+
+/*** Friend, Pending and Invite Buttons - Styles ***/
+
+.friend-btn {
+    background-color: rgba(0, 255, 0, 0.45);
+}
+
+.pending-btn {
+    background-color: rgba(255, 255, 0, 0.45);
+}
+
+.invite-btn {
+    background-color: rgba(50, 100, 255, 1);
+    border: 2px outset #FFF;
+    box-shadow: #000 0 0 1px 1px;
 }

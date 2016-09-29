@@ -43,7 +43,7 @@
                 });
             }
 
-            //Geting latest posts by username taken from the URL($routeParams.username)
+            //Geting latest posts by username taken from the URL ($routeParams.username)
             getWallPosts();
 
             // Returns an Array with all friends that the wall owner has
@@ -68,7 +68,22 @@
 
             getFriends.getUserFullData($routeParams.username)
                 .then(function (response) {
-                    $scope.wallOwner = response.data;
+                    var data = response.data;
+                    $scope.wallOwner = data;
+                    $scope.isOwnWall = false;
+
+                    if (data.username !== $cookies.get(USERNAME_COOKIE_KEY)) {
+                        if (data.isFriend) {
+                            $scope.friendStatus = 'friend';
+                        } else if (data.hasPendingRequest) {
+                            $scope.friendStatus = 'pending';
+                        } else {
+                            $scope.friendStatus = 'invite';
+                        }
+                    } else {
+                        $scope.friendStatus = null;
+                        $scope.isOwnWall = true;
+                    }
                 });
 
             $scope.likePost = function (item) {
@@ -94,7 +109,6 @@
                         var status = null;
 
                         $scope.userPreviewData = data;
-
                         if (data.username !== $cookies.get(USERNAME_COOKIE_KEY)) {
                             if (data.isFriend) {
                                 status = 'friend';

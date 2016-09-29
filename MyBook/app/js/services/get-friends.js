@@ -57,10 +57,17 @@
                 return defer.promise;
             }
 
-            function getAllFriends() {
+            function getAllFriends(username) {
                 var defer = $q.defer();
+                var requestService = '';
 
-                $http.get(BASE_URL + 'me/friends')
+                if (username === $cookies.get(USERNAME_COOKIE_KEY)) {
+                    requestService = 'me/friends';
+                } else {
+                    requestService = 'users/' + username + '/friends';
+                }
+
+                $http.get(BASE_URL + requestService)
                     .then(function (response) {
                         defer.resolve(response);
                     });

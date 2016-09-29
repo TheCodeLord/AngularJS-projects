@@ -8,7 +8,7 @@
     <main>
         <div id="userFriends">
             <div class="friend" ng-repeat="friend in allFriends">
-                <a href="">
+                <a ng-href="#/user-wall/{{friend.username}}">
                     <img ng-src="{{friend.profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg'}}" alt="IMAGE" />
                     <span>{{friend.name}}</span>
                 </a>
