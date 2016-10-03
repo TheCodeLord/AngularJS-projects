@@ -7,11 +7,12 @@
 
     <main>
         <div class="row">
-            <div class="col-md-12 wall-cover" style="background-image:url({{wallOwner.coverImageData || 'https://s-media-cache-ak0.pinimg.com/originals/df/30/4f/df304f2f54c707b7083e76d98aa95c53.jpg'}})">
-                <img ng-src="{{wallOwner.profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg'}}" alt="IMAGE" />
+            <div class="col-md-12 wall-cover">
+                <img ng-src="{{wallOwner.coverImageData}}" ng-err="http://img.covry.com/covers/cv/dark-wall.jpg" class="wall-cover-img" />
+                <img ng-src="{{wallOwner.profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg'}}" alt="IMAGE" class="wall-user-img" />
                 <div>
                     <h3>{{wallOwner.name}}</h3>
-                    <button class="{{friendStatus + '-btn'}}" ng-if="friendStatus" ng-disabled="wallOwner.isFriend || wallOwner.hasPendingRequest">{{friendStatus}}</button>
+                    <button ng-click="sendFriendRequest(wallOwner.username)" class="{{friendStatus + '-btn'}}" ng-if="friendStatus" ng-disabled="wallOwner.isFriend || wallOwner.hasPendingRequest">{{friendStatus}}</button>
                 </div>
             </div>
         </div>
@@ -67,7 +68,7 @@
                 </div>
                 <!-- <div user-preview-directive></div> -->
             </div>
-            <div class="col-sm-4 col-xs-12">
+            <div class="col-sm-4 col-xs-12" ng-if="wallOwner.isFriend || isOwnWall" ng-init="getAllFriends(wallOwner.isFriend || isOwnWall)">
                 <div class="friends-table">
                     <a ng-href="#/all-friends/{{wallOwner.username}}">
                         <h2>Friends - {{totalFriendsCount}} total</h2>

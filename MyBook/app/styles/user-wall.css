@@ -9,11 +9,18 @@
   height: 200px;
   background-repeat: no-repeat;
   background-size: 100% 100%; }
-  #newsFeed main .wall-cover img {
+  #newsFeed main .wall-cover .wall-cover-img {
+    position: absolute;
+    z-index: -1;
+    height: 200px;
+    width: 90%;
+    left: 20px; }
+  #newsFeed main .wall-cover .wall-user-img {
     float: left;
     clear: left;
     width: 100px;
-    margin-right: 20px; }
+    margin: 10px 20px 10px 20px;
+    border: 2px inset #000; }
   #newsFeed main .wall-cover div {
     display: inline-block; }
     #newsFeed main .wall-cover div h3 {

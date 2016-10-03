@@ -97,6 +97,17 @@
                 return defer.promise;
             }
 
+            function sendFriendRequest(username) {
+                var defer = $q.defer();
+
+                $http.post(BASE_URL + 'me/requests/' + username)
+                    .then(function (response) {
+                        defer.resolve(response);
+                    });
+
+                return defer.promise;
+            }
+
             return {
                 getUserFriends: getUserFriends,
                 getFriendRequests: getFriendRequests,
@@ -104,7 +115,8 @@
                 processFriendRequest: processFriendRequest,
                 getAllFriends: getAllFriends,
                 getUserPreview: getUserPreview,
-                getUserFullData: getUserFullData
+                getUserFullData: getUserFullData,
+                sendFriendRequest: sendFriendRequest
             }
         }
     ]);

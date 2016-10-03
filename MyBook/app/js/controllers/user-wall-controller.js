@@ -4,8 +4,8 @@
             $routeProvider.when('/user-wall/:username', {
                 templateUrl: 'templates/user-wall.html',
                 controller: 'userWallController'
-        });
-    }])
+            });
+        }])
     .controller('userWallController', [
         '$scope',
         '$location',
@@ -47,24 +47,31 @@
             getWallPosts();
 
             // Returns an Array with all friends that the wall owner has
-            getFriends.getUserFriends($routeParams.username)
-                .then(function (response) {
-                    var friendsArr = response;
-                    $scope.totalFriendsCount = response.length;
+            $scope.getAllFriends = function (isFriendOrOwnWall) {
+                //If the user is not friend or if it is not own wall he cannot see the wall owner friends
+                if (isFriendOrOwnWall) {
+                    getFriends.getUserFriends($routeParams.username)
+                    .then(function (response) {
+                        var friendsArr = response;
+                        $scope.totalFriendsCount = response.length;
 
-                    if (friendsArr.length === 0) {
-                        friendsArr = [];
-                    } else if (friendsArr.length > 6) {
-                        $scope.totalFriendsCount = friendsArr.length;
-                        friendsArr = friendsArr.splice(friendsArr.length - 6);
-                    }
-                        
-                    for (var i = 0; i < friendsArr.length; i++) {
-                        friendsArr[i].profileImageData = friendsArr[i].profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg';
-                    }
+                        if (friendsArr.length === 0) {
+                            friendsArr = [];
+                        } else if (friendsArr.length > 6) {
+                            $scope.totalFriendsCount = friendsArr.length;
+                            friendsArr = friendsArr.splice(friendsArr.length - 6);
+                        }
 
-                    $scope.friends = friendsArr;
-                });
+                        for (var i = 0; i < friendsArr.length; i++) {
+                            friendsArr[i].profileImageData = friendsArr[i].profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg';
+                        }
+
+                        $scope.friends = friendsArr;
+                    });
+                } else {
+                    return null;
+                }
+            };
 
             getFriends.getUserFullData($routeParams.username)
                 .then(function (response) {
@@ -119,7 +126,8 @@
                             }
                         }
 
-                        //Depending on the status the button is disabled or enabled and has different styles
+                        //Depending on the status the button is disabled or enabled 
+                        //and has different styles and content
                         $scope.userPreviewData.status = status;
                     });
             };
@@ -130,7 +138,7 @@
 
             $scope.addPost = function (commentContent) {
                 var wallOwnerUsername = $routeParams.username;
-                
+
                 //Add new post and refresh the posts after the post is added to display the new post
                 userWall.addPost(wallOwnerUsername, commentContent)
                     .then(function () {
@@ -145,5 +153,14 @@
                         getWallPosts();
                     });
             };
+
+            $scope.sendFriendRequest = function (username) {
+                getFriends.sendFriendRequest(username)
+                    .then(function (response) {
+                        //Changing the button text to "pending" and disabling the button
+                        $scope.wallOwner.hasPendingRequest = true;
+                        $scope.friendStatus = 'pending';
+                    });
+            }
         }
     ]);
