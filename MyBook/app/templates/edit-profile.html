@@ -1,0 +1,51 @@
+﻿<div id="editProfile">
+    <div header-menu-directive></div>
+
+    <header>
+        <h1>Edit Profile</h1>
+    </header>
+
+    <main>
+        <form name="editProfileForm">
+            <div class="row edit-profile">
+                <div class="col-sm-4 edit-profile-img-div">
+                    <div class="edit-profile-img">
+                        <img data-ng-src="{{userData.profileImageData}}" alt="IMAGE" class="user-img" />
+                        <p>Allowed Format: ".jpg"</p>
+                        <p>Size Limit: 128kb</p>
+                        <input type='file' ng-model='profileImgModel' base-sixty-four-input>
+                        <button type="submit" ng-click="submitProfileImg()">Upload</button>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="edit-profile-data">
+                        <label name="fullName">Full Name:</label>
+                        <input type="text" ng-model="userData.name" name="fullName" placeholder="Full Name" required="required" />
+                        <br />
+
+                        <label name="email">Email:</label>
+                        <input type="email" ng-model="userData.email" name="fullName" placeholder="example@email.com" required="required" />
+                        <br />
+
+                        <label name="gender">Gender:</label>
+                        <input name="gender" ng-model="userData.gender" value="1" type="radio" ng-checked="userData.gender === 1" /><span>Male</span>
+                        <input name="gender" ng-model="userData.gender" value="2" type="radio" ng-checked="userData.gender === 2" /><span>Female</span>
+                        <input name="gender" ng-model="userData.gender" value="0" type="radio" ng-checked="userData.gender === 0" /><span>Other</span>
+                        <br />
+                    </div>
+
+                    <div class="edit-profile-cover">
+                        <p>Cover Image:</p>
+                        <img ng-src="{{userData.coverImageData}}" alt="IMAGE" class="user-cover" />
+                        <div>
+                            <input type="file" ng-model="coverImgModel" base-sixty-four-input>
+                            <button type="submit" ng-click="submitCoverImg()">Upload</button>
+                            <span>Limit: 1024kb</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button ng-click="editProfile(userData)" ng-disabled="editProfileForm.$invalid" class="edit-profile-btn">Sava Changes</button>
+        </form>
+    </main>
+</div>

@@ -99,6 +99,10 @@
     border-radius: 20px;
     background-color: #FFF;
     color: #000; }
+    #newsFeed main .feed-items .post-comment a:hover {
+      cursor: pointer; }
+      #newsFeed main .feed-items .post-comment a:hover span {
+        text-decoration: underline; }
     #newsFeed main .feed-items .post-comment img {
       width: 45px; }
     #newsFeed main .feed-items .post-comment p {
@@ -176,6 +180,7 @@
         cursor: pointer; }
     .user-preview div button {
       display: block;
+      color: #000;
       margin-top: 15px;
       font-size: 1.25em;
       width: 95px;

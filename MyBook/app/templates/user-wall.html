@@ -41,7 +41,7 @@
                                 <span>Unlike</span>
                             </a>
 
-                            <a popup-show="templates/add-comment.html" class="add-comment">
+                            <a ng-if="wallOwner.isFriend || isOwnWall" popup-show="templates/add-comment.html" class="add-comment">
                                 <img ng-src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-1/32/comment-icon.png" alt="COMMENT" />
                                 <span>Comment</span>
                             </a>
@@ -50,6 +50,7 @@
                     <div ng-repeat="comment in post.comments" class="post-comment">
                         <div>
                             <img ng-src="{{comment.author.profileImageData || 'http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg'}}" alt="IMAGE" />
+                            <a ng-click="showUserPreview(post.author.username)" popup-show="templates/user-preview.html">{{comment.author.name}}</a>
                             <span>{{comment.date | date : "dd MMM yyyy HH:mm:ss"}}</span>
                         </div>
                         <p>{{comment.commentContent}}</p>
@@ -66,7 +67,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div user-preview-directive></div> -->
             </div>
             <div class="col-sm-4 col-xs-12" ng-if="wallOwner.isFriend || isOwnWall" ng-init="getAllFriends(wallOwner.isFriend || isOwnWall)">
                 <div class="friends-table">

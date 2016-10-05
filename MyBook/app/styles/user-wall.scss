@@ -144,6 +144,16 @@
                 background-color: #FFF;
                 color: #000;
 
+                a {
+                    &:hover {
+                        cursor: pointer;
+
+                        span {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
                 img {
                     width: 45px;
                 }
@@ -267,6 +277,7 @@
 
         button {
             display: block;
+            color: #000;
             margin-top: 15px;
             font-size: 1.25em;
             width: 95px;

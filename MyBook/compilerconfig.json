@@ -34,5 +34,13 @@
   {
     "outputFile": "app/styles/main-style.css",
     "inputFile": "app/styles/main-style.scss"
+  },
+  {
+    "outputFile": "app/styles/edit-profile.css",
+    "inputFile": "app/styles/edit-profile.scss"
+  },
+  {
+    "outputFile": "app/styles/change-password.css",
+    "inputFile": "app/styles/change-password.scss"
   }
 ]
