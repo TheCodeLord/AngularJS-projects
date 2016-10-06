@@ -21,8 +21,9 @@
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
 </head>
-<body ng-controller="MainController" ng-click="hideRequests(); hidePopover();">
+<body ng-controller="MainController" ng-cloak ng-click="hideRequests(); hidePopover();">
     <div class="container">
         <main ng-click="hideResults()">
             <div ng-view></div>
@@ -31,7 +32,6 @@
         <footer footer-directive></footer>
     </div>
 
-    <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/toastr/toastr.js"></script>

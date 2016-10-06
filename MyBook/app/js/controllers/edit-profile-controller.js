@@ -7,9 +7,10 @@
     }])
     .controller('editProfileController', [
         '$scope',
+        '$window',
         'toastr',
         'editProfile',
-        function ($scope, toastr, editProfile) {
+        function ($scope, $window, toastr, editProfile) {
             editProfile.getUserData()
                 .then(function (response) {
                     $scope.userData = response.data;
@@ -24,7 +25,10 @@
                     gender: data.gender
                 }
 
-                editProfile.editProfile(newData);
+                editProfile.editProfile(newData)
+                    .then(function () {
+                        $window.location.reload();
+                    });
             };
 
             $scope.submitProfileImg = function () {
