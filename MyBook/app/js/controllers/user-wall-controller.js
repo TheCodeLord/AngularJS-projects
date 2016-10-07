@@ -143,6 +143,7 @@
                 userWall.addPost(wallOwnerUsername, commentContent)
                     .then(function () {
                         getWallPosts();
+                        angular.element(document.querySelector('#newPost')).val('');
                     });
             };
 

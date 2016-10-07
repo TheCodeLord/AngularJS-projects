@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-sm-8 col-xs-12">
                 <div class="add-post" ng-if="wallOwner.isFriend || isOwnWall">
-                    <textarea cols="55" rows="2" ng-model="postContent"></textarea>
+                    <textarea cols="55" rows="2" ng-model="postContent" id="newPost" placeholder="Your post..."></textarea>
                     <button ng-click="addPost(postContent)">Add Post</button>
                 </div>
                 <div ng-repeat="post in latestFeed" class="feed-items">
